@@ -1,0 +1,28 @@
+{
+  "name": "eos-cardgame",
+  "version": "1.0.0",
+  "description": "eos cardgame",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "./build.sh",
+    "migrate": "./deploy.sh alice",
+    "contract-clean": "rm -rf ./build",
+    "contract-reboot": "npm run contract-clean && ./reboot.sh",
+    "clean": "rm -rf ./node_modules && rm -f package-lock.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/milochen0418/eos-cardgame.git"
+  },
+  "keywords": [
+    "eos",
+    "cardgame"
+  ],
+  "author": "Milo Chen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/milochen0418/eos-cardgame/issues"
+  },
+  "homepage": "https://github.com/milochen0418/eos-cardgame#readme"
+}
