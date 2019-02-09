@@ -10,7 +10,8 @@
     "migrate": "./deploy.sh alice",
     "contract-clean": "rm -rf ./build",
     "contract-reboot": "npm run contract-clean && ./reboot.sh",
-    "clean": "rm -rf ./node_modules && rm -f package-lock.json"
+    "clean": "rm -rf ./node_modules && rm -f package-lock.json",
+    "create-react-app": "npm init react-app app"
   },
   "repository": {
     "type": "git",
@@ -25,5 +26,6 @@
   "bugs": {
     "url": "https://github.com/milochen0418/eos-cardgame/issues"
   },
-  "homepage": "https://github.com/milochen0418/eos-cardgame#readme"
+  "homepage": "https://github.com/milochen0418/eos-cardgame#readme",
+  "devDependencies": {}
 }
