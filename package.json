@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "help": "cat ./package.json | jq '.scripts'",
     "compile": "./build.sh",
     "migrate": "./deploy.sh alice",
     "contract-clean": "rm -rf ./build",
