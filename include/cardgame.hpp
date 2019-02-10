@@ -37,4 +37,6 @@ class [[eosio::contract]] cardgame : public eosio::contract {
     //name("users") --> provide 'table name'
     //primary_key() --> provide the 'primary key'
 
+    [[eosio::action]]
+    void login(name username);
 };
