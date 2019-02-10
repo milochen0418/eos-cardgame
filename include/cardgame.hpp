@@ -23,10 +23,18 @@ class [[eosio::contract]] cardgame : public eosio::contract {
     //The multi index table definition, which takes two arguments:
     //(1) the table name
     //(2) the struct defining what data we intend to store in the multi index table
-    
+
+    //create a varable for the multi index table
+    users_table _users;
 
   public:
+    //initialize the variable _users in our smart contract constructor.
+    cardgame( name receiver, name code, datastream<const char*> ds ):contract(receiver, code, ds), _users(receiver, receiver.value) {}
 
-    cardgame( name receiver, name code, datastream<const char*> ds ):contract(receiver, code, ds) {}
+    //data in a multi index table is identified by 4 pieces of information: 
+    // (1) code, (2) scope, (3) table name , (4) primary key
+    //_user(receiver, receiver.value) -->  provide 'code' and 'scope'
+    //name("users") --> provide 'table name'
+    //primary_key() --> provide the 'primary key'
 
 };
