@@ -1,5 +1,11 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## install
+### install for react to use redux framework and eosjs 
+$ npm install --save redux
+$ npm install --save react-redux
+$ npm install --save eosjs
+
 ## Available Scripts
 
 In the project directory, you can run:
