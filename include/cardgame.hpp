@@ -8,7 +8,7 @@ class [[eosio::contract]] cardgame : public eosio::contract {
 
     //Refer document: https://eosio.github.io/eosio.cdt/1.4.1/group__multiindex.html 
     //Use multi index table(in-memory database) to tell EOSIO what data we are goin to store in it.
-    struct user_info {
+    struct [[eosio::table]] user_info {
       name            username; //name: a type defined in EOSIO which is a class that contains a base32 string encoded as 64-bit unsigned integer as value
       uint16_t        win_count = 0;
       uint16_t        lost_count = 0;
