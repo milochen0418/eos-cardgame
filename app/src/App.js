@@ -33,8 +33,8 @@ export default App;
 import React, { Component } from 'react';
 
 // Components
-import { Login } from 'components';
-
+//import { Login } from './';
+import Login from './components/Login';
 
 class App extends Component {
 
