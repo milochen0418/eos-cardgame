@@ -44,14 +44,32 @@ async function takeAction(action, dataValue) {
       expireSeconds: 30,
     });
     return resultWithConfig;
-  } catch (err) {
+  } 
+  catch (err) {
     throw(err)
   }
 
-
-
 }
 class ApiService {
+  //username and key are stored into the browser’s localStorage so 
+  //we then can use these later for signing the transaction in the 
+  //takeAction function described above.
+  //We can now use ApiService.login() to trigger the corresponding “login” action in the smart contract.
+  static login({ username, key }) {
+    return new Promise((resolve, reject) => {
+      localStorage.setItem("cardgame_account", username);
+      localStorage.setItem("cardgame_key", key);
+      takeAction("login", { username: username })
+        .then(() => {
+          resolve();
+        })
+        .catch(err => {
+          localStorage.removeItem("cardgame_account");
+          localStorage.removeItem("cardgame_key");
+          reject(err);
+        });
+    });
+  }  
 }
 
 export default ApiService;
