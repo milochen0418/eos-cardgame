@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 // Components
 //import { Button } from 'components';
 import { Button } from 'react-bootstrap';
+
+import { connect } from 'react-redux';
 import ApiService from '../services/ApiService'
+import UserAction from '../actions/UserAction';
+
 class Login extends Component {
 
   constructor(props) {
@@ -127,4 +131,25 @@ class Login extends Component {
   }
 }
 
-export default Login;
+//export default Login;
+/*
+We also need to connect the store with the web app using the Redux utility function connect(). 
+To do this we define two more functions, and pass them to connect():
+  mapStateToProps  - Describes how to transform the Redux store state into the props of the component. Here we simply store the entire game state as the component’s props.
+  mapDispatchToProps  - Allows us to inject callbacks as props of the component.
+
+You can read more about this here: 
+https://redux.js.org/basics/usagewithreact#implementing-container-components
+*/
+
+// Map all state to component props (for redux to connect)
+const mapStateToProps = state => state;
+// Map the following action to props
+const mapDispatchToProps = {
+  setUser: UserAction.setUser,
+};
+// Export a redux connected component
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
+
+
+
