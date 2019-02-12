@@ -1,6 +1,8 @@
 # eos-cardgame
 eos-cardgame  
-
+Arch.  
+![image](https://d1mrsgzqahfqns.cloudfront.net/tutorial/lessons/v6/image13.png)  
+  
 ## Use eos-script
 ### If you have no eos-script environemnet , you can use the following way
 $ cd ~/  

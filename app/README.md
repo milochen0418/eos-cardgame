@@ -6,6 +6,9 @@ $ npm install --save redux
 $ npm install --save react-redux
 $ npm install --save eosjs@20.0.0-beta.3
 
+Arch.  
+![image](https://d1mrsgzqahfqns.cloudfront.net/tutorial/lessons/v6/image13.png)
+
 ## Available Scripts
 
 In the project directory, you can run:
