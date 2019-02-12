@@ -38,6 +38,7 @@ class Login extends Component {
   handleSubmit(event) {
     // Stop the default form submit browser behaviour
     event.preventDefault();
+    console.log("handleSubmit  !! ");
 
     // TODO: submit transactions to smart contract
   }
