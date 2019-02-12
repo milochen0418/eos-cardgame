@@ -8,9 +8,10 @@ $ git clone https://github.com/milochen0418/eos-script
 $ source ~/eos-script/nodeos/use-eos-script.sh  
 
 ## create basic environment by eos-script
+$ createAccount.sh cardgameacc
 $ createAccount.sh alice  
 $ createAccount.sh bob  
 $ ./build.sh  
-$ ./deploy.sh alice  
+$ ./deploy.sh cardgameacc
 
 ## interact with contracts
