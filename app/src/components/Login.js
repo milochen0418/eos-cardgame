@@ -13,6 +13,7 @@ class Login extends Component {
       form: {
         username: '',
         key: '',
+        error: ''
       },
     }
 
@@ -30,6 +31,7 @@ class Login extends Component {
       form: {
         ...form,
         [name]: value,
+        error: ''
       },
     });
   }
@@ -39,13 +41,47 @@ class Login extends Component {
     // Stop the default form submit browser behaviour
     event.preventDefault();
     console.log("handleSubmit  !! ");
-
     // TODO: submit transactions to smart contract
+
+    // Extract `form` state
+    const { form } = this.state;
+    // Extract `setUser` of `UserAction` and `user.name` of UserReducer from redux
+    const { setUser } = this.props;
+    // Send a login transaction to the blockchain by calling the ApiService,
+    // If it successes, save the username to redux store
+    // Otherwise, save the error state for displaying the message
+    return ApiService.login(form)
+      .then(() => {
+        setUser({ name: form.username });
+      })
+      .catch(err => {
+        this.setState({ error: err.toString() });
+      });
+
+    /*
+      You can see we have implemented handleSubmit() function in Login.jsx. 
+      The sequence of events after a user has clicked the “CONFIRM” button in the form are:
+
+      When a player presses the “CONFIRM” button, it will trigger the form submission and 
+      the handleSubmit() function will be invoked. Inside handleSubmit(), we will invoke 
+      the ApiService.login() function which will call the login action of the smart contract.
+      
+      If the login is successful:
+      We will fire the SET_USER action.
+      The UserReducer will receive the action and update the Redux store, 
+      storing the name attribute for the current user. All other values in that object stay the same.
+
+      If the login failed:
+      We will store the blockchain error message in the Login Form state variable error.
+    
+    */
+
+
   }
 
   render() {
     // Extract data from state
-    const { form } = this.state;
+    const { form, error } = this.state;
 
     return (
       <div className="Login">
@@ -75,6 +111,11 @@ class Login extends Component {
               required
             />
           </div>
+
+          <div className="field form-error">
+            { error && <span className="error">{ error }</span> }
+          </div>
+
           <div className="bottom">
             <Button type="submit" className="green">
               { "CONFIRM" }
