@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ### install for react to use redux framework and eosjs 
 $ npm install --save redux
 $ npm install --save react-redux
-$ npm install --save eosjs
+$ npm install --save eosjs@20.0.0-beta.3
 
 ## Available Scripts
 
