@@ -16,7 +16,7 @@ class Login extends Component {
     this.state = {
       form: {
         username: '',
-        key: '',
+        key: '5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3',
         error: ''
       },
     }
